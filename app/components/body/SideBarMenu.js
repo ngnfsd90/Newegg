@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function SidebarMenu() {
   return (
-    <div className="w-96 h-4/5 bg-blue-800 text-white fixed top-36 right-10 z-50 rounded-lg">
+    <div className="w-full h-auto bg-blue-800 text-white  top-36 right-10 z-50 rounded-lg">
       <div className="p-4">
         <h3 className="text-lg font-bold">تمام محصولات</h3>
         <ul className="space-y-2 mt-4">
