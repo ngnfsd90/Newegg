@@ -2,102 +2,62 @@
 import { useState } from "react";
 
 export default function SidebarMenu() {
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const menuItems = [
+    { title: "اجزای کامپیوتر و ذخیره‌سازی", submenus: ["زیرمنو 1", "زیرمنو 2", "زیرمنو 3" , "زیرمنو 3" ,"زیرمنو 3" ,"زیرمنو 3" ,"زیرمنو 3"] },
+    { title: "سیستم‌های کامپیوتری", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+    { title: "لوازم جانبی کامپیوتر", submenus: ["زیرمنو 1", "زیرمنو 2", "زیرمنو 3", "زیرمنو 4"] },
+    { title: "الکترونیک", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+    { title: "گیمینگ", submenus: ["زیرمنو 1", "زیرمنو 2", "زیرمنو 3"] },
+    { title: "نرم‌افزار و خدمات", submenus: ["زیرمنو 1"] },
+    { title: "شبکه‌بندی", submenus: ["زیرمنو 1", "زیرمنو 2", "زیرمنو 3"] },
+    { title: "راه‌حل‌های اداری", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+    { title: "اتومبیل و ابزارآلات صنعتی", submenus: ["زیرمنو 1"] },
+    { title: "خانه و فضای باز", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+    { title: "سلامت و ورزش", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+    { title: "پوشاک و لوازم جانبی", submenus: ["زیرمنو 1"] },
+    { title: "اسباب‌بازی و پهپادها", submenus: ["زیرمنو 1", "زیرمنو 2"] },
+  ];
+
+  const handleMouseEnter = (index) => {
+    setActiveMenu(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveMenu(null);
+  };
+
   return (
-    <div className="w-full h-auto bg-blue-800 text-white  top-36 right-10 z-50 rounded-lg">
+    <div className="w-full h-auto bg-blue-800 text-white top-36 right-10 z-50 rounded-lg">
       <div className="p-4">
         <h3 className="text-lg font-bold">تمام محصولات</h3>
         <ul className="space-y-2 mt-4">
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">اجزای کامپیوتر و ذخیره‌سازی</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">سیستم‌های کامپیوتری</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">لوازم جانبی کامپیوتر</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">الکترونیک</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">گیمینگ</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">نرم‌افزار و خدمات</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">شبکه‌بندی</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">راه‌حل‌های اداری</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">اتومبیل و ابزارآلات صنعتی</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">خانه و فضای باز</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">سلامت و ورزش</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">پوشاک و لوازم جانبی</a>
-            <span className="text-sm">›</span>
-          </li>
-          <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-            <a href="#" className="w-full">اسباب‌بازی و پهپادها</a>
-            <span className="text-sm">›</span>
-          </li>
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              className="relative flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <a href="#" className="w-full">{item.title}</a>
+              <span className="text-sm">›</span>
+
+              {activeMenu === index && (
+                <div className="absolute right-full top-0 mt-2 w-56 bg-blue-600 rounded-lg p-2 shadow-lg shadow-blue-900/50 z-60">
+                  <ul className="space-y-2">
+                    {item.submenus.map((submenu, submenuIndex) => (
+                      <li key={submenuIndex} className="hover:bg-blue-500 p-2 rounded-lg cursor-pointer">
+                        {submenu}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   );
 }
-
-
-// import { useState } from 'react';
-
-// export default function SidebarMenu() {
-//   const [isOpen, setIsOpen] = useState(true); 
-
-//   return (
-//     <div className="w-full sm:w-1/4 lg:w-1/4 h-full bg-blue-800 text-white fixed top-36 right-10 z-50 rounded-lg">
-//       <div className="p-4">
-//         <h3 className="text-lg font-bold">تمام محصولات</h3>
-//         <ul className="space-y-2 mt-4">
-//           <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-//             <a href="#" className="w-full">اجزای کامپیوتر و ذخیره‌سازی</a>
-//             <span className="text-sm">›</span>
-//           </li>
-//           <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-//             <a href="#" className="w-full">سیستم‌های کامپیوتری</a>
-//             <span className="text-sm">›</span>
-//           </li>
-//           <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-//             <a href="#" className="w-full">لوازم جانبی کامپیوتر</a>
-//             <span className="text-sm">›</span>
-//           </li>
-//           <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-//             <a href="#" className="w-full">الکترونیک</a>
-//             <span className="text-sm">›</span>
-//           </li>
-//           <li className="flex items-center space-x-2 hover:bg-blue-700 rounded-lg p-2 cursor-pointer">
-//             <a href="#" className="w-full">گیمینگ</a>
-//             <span className="text-sm">›</span>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   );
-// }
