@@ -44,7 +44,7 @@ export default function SidebarMenu() {
               <span className="text-sm">›</span>
 
               {activeMenu === index && (
-                <div className="absolute right-full top-0 mt-2 w-56 bg-blue-600 rounded-lg p-2 shadow-lg shadow-blue-900/50 z-60">
+                <div className="absolute right-full top-0 mt-2 w-56 bg-blue-600 rounded-lg p-2 shadow-lg shadow-blue-900/50 z-[9999]">
                   <ul className="space-y-2">
                     {item.submenus.map((submenu, submenuIndex) => (
                       <li key={submenuIndex} className="hover:bg-blue-500 p-2 rounded-lg cursor-pointer">

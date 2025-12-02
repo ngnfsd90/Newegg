@@ -9,12 +9,15 @@ export default function Categories({ title, imageUrl, linkText, linkUrl }) {
           {title}
         </div>
 
-        <a
-          href={linkUrl}
-          className="absolute bottom-4 left-4 text-white p-2 bg-black rounded-md hover:bg-gray-700 z-10"
-        >
-          {linkText}
-        </a>
+        <div className="absolute inset-0 flex p-2 justify-end items-start mt-2">
+          <a
+            href={linkUrl}
+            className="inline-flex items-center text-white hover:underline mt-5 text-sm font-semibold"
+          >
+            {linkText}
+            <span className="mr-1 ">🢐</span>
+          </a>
+        </div>
 
         <a href={linkUrl} className="absolute inset-0 z-0" />
       </div>

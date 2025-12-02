@@ -5,6 +5,7 @@ import TwinBanners from "./TwinBanners";
 import BestDeals from "./BestDeals";
 import FeaturedItems from "./FeaturedItems";
 import Products from "./Products";
+import ShoppingTools from "./ShoppingTools";
 
 export default function MainContent() {
   const bestDealsProducts = [
@@ -169,6 +170,29 @@ export default function MainContent() {
     },
   ];
 
+  const tools = [
+    {
+      title: "PC Builder",
+      imageUrl: "/pictures/pc-builder.png",
+      linkUrl: "/pc-builder",
+    },
+    {
+      title: "Gaming PC Finder",
+      imageUrl: "/pictures/gaming-pc.png",
+      linkUrl: "/gaming-pc-finder",
+    },
+    {
+      title: "Laptop Finder",
+      imageUrl: "/pictures/laptop-finder.png",
+      linkUrl: "/laptop-finder",
+    },
+    {
+      title: "Memory Finder",
+      imageUrl: "/pictures/memory-finder.png",
+      linkUrl: "/memory-finder",
+    },
+  ];
+
   return (
     <main>
       <section
@@ -238,6 +262,10 @@ export default function MainContent() {
 
       <section className=" p-8 ">
         <Products products={products} />
+      </section>
+
+      <section className=" p-8 ">
+        <ShoppingTools tools={tools} />
       </section>
     </main>
   );
