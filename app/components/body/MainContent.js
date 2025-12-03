@@ -6,6 +6,8 @@ import BestDeals from "./BestDeals";
 import FeaturedItems from "./FeaturedItems";
 import Products from "./Products";
 import ShoppingTools from "./ShoppingTools";
+import NewsletterSignup from "./NewsletterSignup";
+import DownloadApp from "./DownloadApp";
 
 export default function MainContent() {
   const bestDealsProducts = [
@@ -264,8 +266,13 @@ export default function MainContent() {
         <Products products={products} />
       </section>
 
-      <section className=" p-8 ">
-        <ShoppingTools tools={tools} />
+      <section className="p-8 "> 
+        <ShoppingTools tools={tools}  />
+      </section>
+
+      <section className=" bg-gray-50 py-16 px-4 flex flex-col sm:flex-row gap-3 justify-between items-center "> 
+        <DownloadApp  />
+        <NewsletterSignup  />
       </section>
     </main>
   );
