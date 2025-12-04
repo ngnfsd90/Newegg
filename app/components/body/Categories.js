@@ -2,10 +2,10 @@ export default function Categories({ title, imageUrl, linkText, linkUrl }) {
   return (
     <div>
       <div
-        className="w-full sm:w-3/4 lg:w-full h-80 relative bg-cover bg-center p-2 m-2 rounded-lg"
+        className="w-full h-48 sm:h-64 md:h-80 relative bg-cover bg-center p-2 m-1 sm:m-2 rounded-lg"
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
-        <div className="absolute top-4 left-4 transform -translate-y-1/2 text-white text-3xl font-bold z-10">
+        <div className="absolute top-4 left-4 transform -translate-y-1/2 text-white text-xl sm:text-2xl md:text-3xl font-bold z-10">
           {title}
         </div>
 

@@ -1,9 +1,9 @@
 export default function ShoppingToolsCard({ title, imageUrl, linkUrl }) {
   return (
-    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4">
+    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-[calc(25%-12px)] p-2 sm:p-4">
       <a
         href={linkUrl}
-        className="block bg-cover bg-center rounded-lg  overflow-hidden relative h-40 w-80"
+        className="block bg-cover bg-center rounded-lg overflow-hidden relative h-24 sm:h-28 md:h-32 lg:h-36 w-full"
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
         <div className="absolute inset-0 bg-black opacity-40"></div>

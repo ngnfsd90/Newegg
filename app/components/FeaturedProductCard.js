@@ -1,4 +1,8 @@
+"use client";
+
 import PropTypes from "prop-types";
+import EggIcon from "./EggIcon";
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 export default function FeaturedProductCard({
   rating,
@@ -9,23 +13,24 @@ export default function FeaturedProductCard({
   imageUrl,
   productLink,
 }) {
+  const { darkMode } = useDarkMode();
+  
   return (
-    <div className="bg-gray-100 p-4 m-2 rounded-lg   transition-all w-90">
-      <div className="flex items-center space-x-1 mb-2">
+    <div className={`${darkMode ? "bg-[#363636]" : "bg-gray-100"} p-2 sm:p-4 m-1 sm:m-2 rounded-lg transition-all w-full max-w-[288px] ${darkMode ? "text-white" : ""}`}>
+      <div className="flex items-center gap-0 mb-2">
         {[...Array(5)].map((_, index) => (
-          <span
+          <EggIcon
             key={index}
-            className={`text-${index < rating ? "yellow-400" : "gray-300"}`}
-          >
-            🥚
-          </span>
+            filled={index < rating}
+            className={`w-4 h-4 ${index > 0 ? '-ml-1' : ''}`}
+          />
         ))}
-        <span className="text-gray-500">({reviewCount})</span>
+        <span className={darkMode ? "text-gray-400" : "text-gray-500"}>({reviewCount})</span>
       </div>
 
       <a
         href={productLink}
-        className="text-blue-600 hover:underline text-xl font-semibold mb-2 block"
+        className={`${darkMode ? "text-[#8EAFF0]" : "text-blue-600"} hover:underline text-xl font-semibold mb-2 block`}
         style={{
           whiteSpace: "nowrap",
           overflow: "hidden",
@@ -35,14 +40,14 @@ export default function FeaturedProductCard({
         {productName}
       </a>
 
-      <p className="text-xl font-bold text-gray-800 mb-1">{price} Dh</p>
+      <p className={`text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-800"}`}>{price} Dh</p>
 
-      <p className="text-sm text-gray-500 mb-4">Shipping: {shippingPrice} Dh</p>
+      <p className={`text-sm mb-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>Shipping: {shippingPrice} Dh</p>
 
       <img
         src={imageUrl}
         alt={productName}
-        className="w-full h-40 object-cover rounded-lg"
+        className="w-full h-32 sm:h-40 object-cover rounded-lg"
       />
     </div>
   );

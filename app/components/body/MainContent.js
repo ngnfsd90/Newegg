@@ -1,15 +1,20 @@
+"use client";
+
 import SideBarMenu from "./SideBarMenu";
 import Banner from "./Banner";
 import Categories from "./Categories";
 import TwinBanners from "./TwinBanners";
+import BannerSlider from "./BannerSlider";
 import BestDeals from "./BestDeals";
 import FeaturedItems from "./FeaturedItems";
 import Products from "./Products";
 import ShoppingTools from "./ShoppingTools";
 import NewsletterSignup from "./NewsletterSignup";
 import DownloadApp from "./DownloadApp";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 export default function MainContent() {
+  const { darkMode } = useDarkMode();
   const bestDealsProducts = [
     {
       rating: 4,
@@ -196,23 +201,31 @@ export default function MainContent() {
   ];
 
   return (
-    <main>
+    <main className="w-full max-w-full overflow-x-hidden pt-20 sm:pt-24">
       <section
-        className="p-16"
-        style={{
+        className={`p-4 sm:p-8 md:p-12 lg:p-16 ${darkMode ? "bg-[#121212]" : ""}`}
+        style={darkMode ? {} : {
           background:
             "linear-gradient(to bottom, rgba(148, 188, 231, 0.895), rgba(255, 255, 255, 0))",
         }}
       >
-        <div className="grid grid-cols-4 grid-rows-2 gap-4">
-          <div className="col-span-1 row-span-4">
-            <SideBarMenu />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-full">
+          
+          <div className="md:col-span-1 md:row-span-3 lg:col-span-1 lg:row-span-4 mt-16 sm:mt-20 md:mt-0">
+            <div className="sm:max-w-[280px] sm:mx-auto md:max-w-[200px] md:mx-0 lg:max-w-none">
+              <SideBarMenu />
+            </div>
           </div>
-          <div className="col-span-2 row-span-1">
-            <Banner />
+          <div className="md:col-span-2 lg:col-span-2 lg:row-span-1">
+            <div className="block lg:hidden">
+              <BannerSlider />
+            </div>
+            <div className="hidden lg:block">
+              <Banner />
+            </div>
           </div>
 
-          <div className="col-span-1 row-span-1">
+          <div className="md:col-span-1 lg:col-span-1 lg:row-span-1">
             <Categories
               title="دسته بندی 1"
               imageUrl="/pictures/category.png"
@@ -221,7 +234,7 @@ export default function MainContent() {
             />
           </div>
 
-          <div className="col-span-1 row-span-1">
+          <div className="md:col-span-1 lg:col-span-1 lg:row-span-1">
             <Categories
               title="دسته بندی 2"
               imageUrl="/pictures/category.png"
@@ -230,7 +243,7 @@ export default function MainContent() {
             />
           </div>
 
-          <div className="col-span-1 row-span-1">
+          <div className="md:col-span-1 md:col-start-1 lg:col-start-auto lg:col-span-1 lg:row-span-1">
             <Categories
               title="دسته بندی 3"
               imageUrl="/pictures/category.png"
@@ -239,7 +252,7 @@ export default function MainContent() {
             />
           </div>
 
-          <div className="col-span-1 row-span-1">
+          <div className="md:col-span-1 md:col-start-2 lg:col-start-auto lg:col-span-1 lg:row-span-1">
             <Categories
               title="دسته بندی 4"
               imageUrl="/pictures/category.png"
@@ -248,29 +261,31 @@ export default function MainContent() {
             />
           </div>
 
-          <div className="col-span-4 row-span-2">
-            <TwinBanners />
+          <div className="md:col-span-2 lg:col-span-4 lg:row-span-2">
+            <div className="hidden lg:block">
+              <TwinBanners />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className=" p-8 ">
+      <section className="p-0">
         <BestDeals products={bestDealsProducts} />
       </section>
 
-      <section className=" p-8 ">
+      <section className="p-0">
         <FeaturedItems products={featuredProducts} />
       </section>
 
-      <section className=" p-8 ">
+      <section className="p-0">
         <Products products={products} />
       </section>
 
-      <section className="p-8 "> 
+      <section className="p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 w-full max-w-full"> 
         <ShoppingTools tools={tools}  />
       </section>
 
-      <section className=" bg-gray-50 py-16 px-4 flex flex-col sm:flex-row gap-3 justify-between items-center "> 
+      <section className={`${darkMode ? "bg-[#363636]" : "bg-gray-50"} py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row gap-4 sm:gap-3 justify-between items-stretch`}> 
         <DownloadApp  />
         <NewsletterSignup  />
       </section>

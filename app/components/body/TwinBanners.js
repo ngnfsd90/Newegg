@@ -1,7 +1,7 @@
 export default function TwinBanners() {
   return (
-    <div className="flex justify-between gap-4">
-      <div className="w-full h-80 bg-blue-500 rounded-lg overflow-hidden">
+    <div className="flex flex-col sm:flex-row justify-between gap-4">
+      <div className="w-full h-48 sm:h-64 md:h-80 bg-blue-500 rounded-lg overflow-hidden">
         <a href="/your-target-page" className="block w-full h-full">
           <img
             src="/pictures/banner2.png"
@@ -11,7 +11,7 @@ export default function TwinBanners() {
         </a>
       </div>
 
-      <div className="w-full h-80 bg-green-500 rounded-lg overflow-hidden">
+      <div className="w-full h-48 sm:h-64 md:h-80 bg-green-500 rounded-lg overflow-hidden">
         <a href="/your-target-page" className="block w-full h-full">
           <img
             src="/pictures/banner3.png"

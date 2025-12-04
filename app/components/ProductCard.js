@@ -1,4 +1,8 @@
+"use client";
+
 import PropTypes from "prop-types";
+import EggIcon from "./EggIcon";
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 export default function ProductCard({
   rating,
@@ -9,32 +13,30 @@ export default function ProductCard({
   imageUrl,
   productLink,
 }) {
+  const { darkMode } = useDarkMode();
+  
   return (
-    <div className="bg-gray-100 p-4 rounded-lg   transition-all w-60">
+    <div className={`${darkMode ? "bg-[#363636]" : "bg-gray-100"} p-2 sm:p-4 rounded-lg transition-all w-full max-w-[240px] ${darkMode ? "text-white" : ""}`}>
       <img
         src={imageUrl}
         alt={productName}
-        className="w-60 h-52 object-cover rounded-lg"
+        className="w-full h-40 sm:h-52 object-cover rounded-lg"
       />
 
-      <div className="flex items-center space-x-1 mb-2">
+      <div className="flex items-center gap-0 mb-2">
         {[...Array(5)].map((_, index) => (
-          <span
+          <EggIcon
             key={index}
-            className={`text-yellow-400 ${
-              index < rating ? "text-yellow-400" : "text-gray-300"
-            }`}
-          >
-            {index < rating ? "🥚" : "🍳"}
-          </span>
+            filled={index < rating}
+            className={`w-4 h-4 ${index > 0 ? '-ml-1' : ''}`}
+          />
         ))}
-        <span className="text-gray-500">({reviewCount})</span>
+        <span className={darkMode ? "text-gray-400" : "text-gray-500"}>({reviewCount})</span>
       </div>
 
-      {/* نام محصول */}
       <a
         href={productLink}
-        className="text-blue-600 hover:underline text-xl font-semibold mb-2 block"
+        className={`${darkMode ? "text-[#8EAFF0]" : "text-blue-600"} hover:underline text-xl font-semibold mb-2 block`}
         style={{
           whiteSpace: "nowrap",
           overflow: "hidden",
@@ -44,9 +46,9 @@ export default function ProductCard({
         {productName}
       </a>
 
-      <p className="text-xl font-bold text-gray-800 mb-1">{price} ریال</p>
+      <p className={`text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-800"}`}>{price} ریال</p>
 
-      <p className="text-sm text-gray-500 mb-4">
+      <p className={`text-sm mb-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>
         هزینه حمل و نقل: {shippingPrice} ریال
       </p>
     </div>
