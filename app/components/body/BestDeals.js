@@ -6,7 +6,11 @@ export default function BestDeals({ products }) {
   const { darkMode } = useDarkMode();
   return (
     <section className="p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 m-2 sm:m-4 w-full max-w-full">
-      <h2 className={`text-xl sm:text-2xl font-bold mb-4 ${darkMode ? "text-white" : "text-blue-950"}`}>
+      <h2
+        className={`text-xl sm:text-2xl font-bold mb-4 ${
+          darkMode ? "text-white" : "text-blue-950"
+        }`}
+      >
         بهترین معاملات امروز
       </h2>
 
@@ -34,9 +38,14 @@ export default function BestDeals({ products }) {
           onClick={() =>
             alert("برای مشاهده همه محصولات باید به صفحه دیگری بروید.")
           }
-          className={`py-2 px-8 sm:px-16 ${darkMode ? "bg-[#8EAFF0]" : "bg-blue-600"} text-white rounded-full text-center transition-transform duration-200 ${darkMode ? "hover:bg-[#7a9fdf]" : "hover:bg-blue-700"} hover:scale-105`}
+          className={`py-2 px-8 sm:px-16 ${
+            darkMode ? "bg-[#8EAFF0]" : "bg-blue-600"
+          }  rounded-full text-center transition-transform duration-200 ${
+            darkMode ? "hover:bg-[#7a9fdf] text-black" : "hover:bg-blue-700 text-white"
+          } hover:scale-105`}
         >
           مشاهده همه
+          <span className="mr-1 ">🢐</span>
         </button>
       </div>
     </section>

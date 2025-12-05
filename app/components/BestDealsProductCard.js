@@ -30,7 +30,7 @@ export default function BestDealsProductCard({
 
       <a
         href={productLink}
-        className={`${darkMode ? "text-[#8EAFF0]" : "text-blue-600"} hover:underline text-xl font-semibold mb-2 block`}
+        className={`${darkMode ? "text-white" : "text-black"} hover:underline text-xl font-semibold mb-2 block`}
         style={{
           whiteSpace: "nowrap",
           overflow: "hidden",

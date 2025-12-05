@@ -281,11 +281,11 @@ export default function MainContent() {
         <Products products={products} />
       </section>
 
-      <section className="p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 w-full max-w-full"> 
+      <section className="p-0 w-full max-w-full"> 
         <ShoppingTools tools={tools}  />
       </section>
 
-      <section className={`${darkMode ? "bg-[#363636]" : "bg-gray-50"} py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row gap-4 sm:gap-3 justify-between items-stretch`}> 
+      <section className={`${darkMode ? "bg-[#2a2a2a]" : "bg-gray-50"} py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row gap-4 sm:gap-3 justify-between items-stretch`}> 
         <DownloadApp  />
         <NewsletterSignup  />
       </section>

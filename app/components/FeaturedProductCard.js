@@ -16,7 +16,7 @@ export default function FeaturedProductCard({
   const { darkMode } = useDarkMode();
   
   return (
-    <div className={`${darkMode ? "bg-[#363636]" : "bg-gray-100"} p-2 sm:p-4 m-1 sm:m-2 rounded-lg transition-all w-full max-w-[288px] ${darkMode ? "text-white" : ""}`}>
+    <div className={`${darkMode ? "bg-[#363636]" : "bg-gray-100"} p-2 sm:p-4 m-2 sm:m-3 rounded-lg transition-all w-full sm:max-w-[400px] ${darkMode ? "text-white" : ""}`}>
       <div className="flex items-center gap-0 mb-2">
         {[...Array(5)].map((_, index) => (
           <EggIcon
@@ -30,7 +30,7 @@ export default function FeaturedProductCard({
 
       <a
         href={productLink}
-        className={`${darkMode ? "text-[#8EAFF0]" : "text-blue-600"} hover:underline text-xl font-semibold mb-2 block`}
+        className={`${darkMode ? "text-white" : "text-black"} hover:underline text-xl font-semibold mb-2 block`}
         style={{
           whiteSpace: "nowrap",
           overflow: "hidden",
@@ -40,9 +40,9 @@ export default function FeaturedProductCard({
         {productName}
       </a>
 
-      <p className={`text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-800"}`}>{price} Dh</p>
+      <p className={`text-xl font-bold mb-1 ${darkMode ? "text-white" : "text-gray-800"}`}>{price} ریال</p>
 
-      <p className={`text-sm mb-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>Shipping: {shippingPrice} Dh</p>
+      <p className={`text-sm mb-4 ${darkMode ? "text-gray-400" : "text-gray-500"}`}>هزینه حمل ونقل: {shippingPrice} ریال</p>
 
       <img
         src={imageUrl}

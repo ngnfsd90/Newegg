@@ -1,6 +1,6 @@
 export default function ShoppingToolsCard({ title, imageUrl, linkUrl }) {
   return (
-    <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-[calc(25%-12px)] p-2 sm:p-4">
+    <div className="w-full sm:w-[calc(50%-8px)] md:w-[calc(50%-8px)] lg:w-[calc(25%-12px)] xl:w-[calc(25%-12px)] p-2 sm:p-4">
       <a
         href={linkUrl}
         className="block bg-cover bg-center rounded-lg overflow-hidden relative h-24 sm:h-28 md:h-32 lg:h-36 w-full"
